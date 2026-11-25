@@ -139,7 +139,6 @@ app.listen(process.env.PORT, async () => {
     await pool.query('SELECT 1');
     console.log('เชื่อมต่อฐานข้อมูลสำเร็จ');
 
-    // สร้างผู้ใช้ทดสอบ 3 คน รหัสผ่าน 1234 (ถ้ามีอยู่แล้วจะข้ามไป)
     const hash = await bcrypt.hash('1234', 10);
     await pool.query(
       `INSERT IGNORE INTO users (username, password, full_name, role) VALUES
